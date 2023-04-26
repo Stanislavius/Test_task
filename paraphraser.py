@@ -45,8 +45,8 @@ def get_permutations(input_tree, permutable_phrs, limit = 20):
     for i in range(2, len(variants_of_permutation)):
         permutations = list(itertools.product(permutations,
                                               variants_of_permutation[i]))
-    i = 0
-    while i < len(permutations) and i < limit:
+    i = 1 #in order to not include initial tree
+    while i < len(permutations) and (i-1) < limit:
         permutated_tree = copy.deepcopy(input_tree)
         for j in range(len(permutations[i])):
             for z in range(len(permutations[i][j])):
