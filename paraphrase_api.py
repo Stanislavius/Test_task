@@ -7,7 +7,6 @@ app = Flask(__name__)
 @app.route('/paraphrase', methods = ['GET'])
 def paraphrase():
     args = request.args
-    tree = args.get("tree", default="", type=str)
+    tree = args.get("tree", type=str)
     limit = args.get("limit", default=20, type=int)
-    return jsonify(get_paraphrases(tree))
-
+    return jsonify(get_paraphrases(tree, limit = limit))
